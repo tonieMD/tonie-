@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
@@ -356,6 +356,33 @@
               box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
           }
 
+        /* Typewriter Effect CSS */
+        .typewriter-text {
+            display: inline-block; /* Needed for the cursor */
+            overflow: hidden; /* Hide the overflowing text */
+            white-space: nowrap; /* Prevent text from wrapping */
+            border-right: 2px solid white; /* Blinking cursor */
+            animation: typing 0s steps(40, end), blink-caret .75s step-end infinite; /* Initial animation duration is 0 */
+             font-family: 'Roboto', sans-serif; /* Apply Roboto font */
+        }
+
+        /* Typing animation (controlled by JS by setting --characters variable) */
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        /* Blinking cursor animation */
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: white; }
+        }
+
+         /* Style for the container holding the typewriter text */
+         .typewriter-container {
+             display: inline-block; /* Allow the container to shrink-wrap the text */
+         }
+
     </style>
 </head>
 <body class="gradient-bg">
@@ -395,12 +422,12 @@
 
         <section id="introduction" class="text-center mb-24 pt-20" data-aos="fade-in" data-aos-delay="100">
              <div id="profile-image-wrapper" class="relative inline-block" data-aos="zoom-in" data-aos-delay="300">
-                 <img id="profile-image" src="/rashid.png" alt="Rashid Mbuma" class="profile-img w-40 h-40 rounded-full mx-auto mb-8 shadow-xl relative z-10 object-cover">
+                 <img id="profile-image" src="./rashid.png" alt="Rashid Mbuma" class="profile-img w-40 h-40 rounded-full mx-auto mb-8 shadow-xl relative z-10 object-cover">
              </div>
              <h1 id="header-name" class="text-5xl md:text-6xl font-bold mb-3 text-white relative z-6" data-aos="fade-down" data-aos-delay="400">Rashid Mbuma</h1>
              <h2 id="header-title" class="text-2xl md:text-3xl accent-gradient font-semibold mb-6 relative z-6" data-aos="fade-down" data-aos-delay="500">Pediatrics Resident | Implementation Science Researcher | Healthcare Innovator</h2>
              <p class="max-w-3xl mx-auto prose-custom text-center mb-10" data-aos="fade-up" data-aos-delay="600">
-                 Welcome to my story. I am a dedicated Medical Doctor specializing in Pediatrics and Child Health, driven by a deep commitment to improving health outcomes in Tanzania through evidence-based practice, research, and innovation. My journey is one of continuous learning, applying scientific rigor to real-world health challenges, and advocating for vulnerable populations.
+                 <span class="typewriter-container"><span class="typewriter-text" data-text="Welcome to my story. I am a dedicated Medical Doctor specializing in Pediatrics and Child Health, driven by a deep commitment to improving health outcomes in Tanzania through evidence-based practice, research, and innovation. My journey is one of continuous learning, applying scientific rigor to real-world health challenges, and advocating for vulnerable populations.">Welcome to my story. I am a dedicated Medical Doctor specializing in Pediatrics and Child Health, driven by a deep commitment to improving health outcomes in Tanzania through evidence-based practice, research, and innovation. My journey is one of continuous learning, applying scientific rigor to real-world health challenges, and advocating for vulnerable populations.</span></span>
              </p>
              <div class="flex justify-center items-center space-x-6 text-3xl text-gray-400 mt-8" data-aos="fade-up" data-aos-delay="700">
                  <a href="mailto:rashid.mbuma@scholar.aku.edu" class="link-icon" title="Email"><i class="fas fa-envelope"></i></a>
@@ -416,7 +443,7 @@
         <section id="foundations" class="mb-20" data-aos="fade-up">
             <h3 class="section-header text-center mx-auto">Laying the Foundations</h3>
              <p class="max-w-3xl mx-auto prose-custom text-center mb-10">
-                 Every journey begins with a first step. Mine was rooted in a passion for science and a desire to make a tangible difference in people's lives. My early education and medical training provided the essential knowledge and skills that would shape my path.
+                 <span class="typewriter-container"><span class="typewriter-text" data-text="Every journey begins with a first step. Mine was rooted in a passion for science and a desire to make a tangible difference in people's lives. My early education and medical training provided the essential knowledge and skills that would shape my path.">Every journey begins with a first step. Mine was rooted in a passion for science and a desire to make a tangible difference in people's lives. My early education and medical training provided the essential knowledge and skills that would shape my path.</span></span>
              </p>
             <div class="space-y-10 max-w-3xl mx-auto">
                 <div class="glass-card p-8 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6" data-aos="fade-right">
@@ -443,7 +470,7 @@
         <section id="building-expertise" class="mb-20" data-aos="fade-up">
             <h3 class="section-header text-center mx-auto">Building Expertise: Clinical Practice</h3>
              <p class="max-w-3xl mx-auto prose-custom text-center mb-10">
-                 Putting knowledge into practice is where the real learning happens. My professional roles have allowed me to deepen my clinical skills, particularly in pediatric care, and understand the complexities of healthcare delivery on the ground.
+                 <span class="typewriter-container"><span class="typewriter-text" data-text="Putting knowledge into practice is where the real learning happens. My professional roles have allowed me to deepen my clinical skills, particularly in pediatric care, and understand the complexities of healthcare delivery on the ground.">Putting knowledge into practice is where the real learning happens. My professional roles have allowed me to deepen my clinical skills, particularly in pediatric care, and understand the complexities of healthcare delivery on the ground.</span></span>
              </p>
             <div class="timeline max-w-3xl mx-auto">
                  <div class="timeline-item" data-aos="fade-in">
@@ -489,7 +516,7 @@
         <section id="impact-innovation" class="mb-20" data-aos="fade-up">
             <h3 class="section-header text-center mx-auto">Driving Impact Through Research & Community</h3>
              <p class="max-w-3xl mx-auto prose-custom text-center mb-10">
-                 My commitment extends beyond clinical walls. Through research and community engagement, I strive to identify scalable solutions, advocate for better health policies, and empower communities to improve their well-being.
+                 <span class="typewriter-container"><span class="typewriter-text" data-text="My commitment extends beyond clinical walls. Through research and community engagement, I strive to identify scalable solutions, advocate for better health policies, and empower communities to improve their well-being.">My commitment extends beyond clinical walls. Through research and community engagement, I strive to identify scalable solutions, advocate for better health policies, and empower communities to improve their well-being.</span></span>
              </p>
              <div class="space-y-10 max-w-3xl mx-auto">
                 <div class="glass-card p-8 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6" data-aos="fade-right">
@@ -510,31 +537,40 @@
                         <p class="mt-3 prose-custom">Actively involved in volunteer efforts to provide health education, conduct screenings, and mobilize resources for underserved communities, directly contributing to improved health awareness and outcomes.</p>
                     </div>
                 </div>
+                 <div class="glass-card p-8 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6" data-aos="fade-right" data-aos-delay="100">
+                     <div class="accent-gradient-bg p-3 rounded-full text-white flex-shrink-0 mt-1 text-xl"><i class="fas fa-heartbeat fa-fw"></i></div>
+                     <div>
+                         <h4 class="text-xl font-semibold text-white">Pedia Pulse: Medical Education Platform</h4>
+                         <p class="prose-custom-sm">Initiative for Medical Doctors</p>
+                         <p class="mt-3 prose-custom">Developed Pedia Pulse, a medical education platform designed to provide medical doctors with easily digestible, evidence-based information on pediatric health, facilitating continuous learning and improved clinical practice.</p>
+                     </div>
+                 </div>
             </div>
         </section>
 
         <section id="skills" class="mb-20" data-aos="fade-up">
             <h3 class="section-header text-center mx-auto">Tools of the Trade: Skills</h3>
              <p class="max-w-3xl mx-auto prose-custom text-center mb-10">
-                 Equipped with a diverse set of technical and analytical skills, I am prepared to tackle complex challenges in healthcare research and implementation.
+                 <span class="typewriter-container"><span class="typewriter-text" data-text="Equipped with a diverse set of technical and analytical skills, I am prepared to tackle complex challenges in healthcare research and implementation.">Equipped with a diverse set of technical and analytical skills, I am prepared to tackle complex challenges in healthcare research and implementation.</span></span>
              </p>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
                 <div class="competence-item" data-aos="zoom-in" data-aos-delay="50"><i class="fas fa-chart-pie fa-fw text-lg"></i> SPSS</div>
-                <div class="competence-item" data-aos="zoom-in" data-aos-delay="100"><i class="fas fa-calculator fa-fw text-lg"></i> Stata</div>
                 <div class="competence-item" data-aos="zoom-in" data-aos-delay="150"><i class="fab fa-python fa-fw text-lg"></i> Python (Pandas)</div>
                 <div class="competence-item" data-aos="zoom-in" data-aos-delay="200"><i class="fas fa-book-open fa-fw text-lg"></i> Cochrane Review</div>
                 <div class="competence-item" data-aos="zoom-in" data-aos-delay="250"><i class="fas fa-bookmark fa-fw text-lg"></i> Zotero</div>
                  <div class="competence-item" data-aos="zoom-in" data-aos-delay="300"><i class="fas fa-database fa-fw text-lg"></i> SQL</div>
                  <div class="competence-item" data-aos="zoom-in" data-aos-delay="350"><i class="fas fa-chart-line fa-fw text-lg"></i> Regression Analysis</div>
-                 <div class="competence-item" data-aos="zoom-in" data-aos-delay="400"><i class="fas fa-language fa-fw text-lg"></i> Swahili (Native)</div>
-                 <div class="competence-item" data-aos="zoom-in" data-aos-delay="450"><i class="fas fa-language fa-fw text-lg"></i> English (IELTS 8.0)</div>
+                 <div class="competence-item" data-aos="zoom-in" data-aos-delay="400"><i class="fab fa-react fa-fw text-lg"></i> React</div>
+                 <div class="competence-item" data-aos="zoom-in" data-aos-delay="450"><i class="fab fa-js fa-fw text-lg"></i> Javascript</div>
+                 <div class="competence-item" data-aos="zoom-in" data-aos-delay="500"><i class="fas fa-language fa-fw text-lg"></i> Swahili (Native)</div>
+                 <div class="competence-item" data-aos="zoom-in" data-aos-delay="550"><i class="fas fa-language fa-fw text-lg"></i> English (IELTS 8.0)</div>
             </div>
         </section>
 
          <section id="recognition" class="mb-20" data-aos="fade-up">
             <h3 class="section-header text-center mx-auto">Milestones & Recognition</h3>
              <p class="max-w-3xl mx-auto prose-custom text-center mb-10">
-                 Along the way, certain achievements have marked significant steps in my development and impact.
+                 <span class="typewriter-container"><span class="typewriter-text" data-text="Along the way, certain achievements have marked significant steps in my development and impact.">Along the way, certain achievements have marked significant steps in my development and impact.</span></span>
              </p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                 <div class="glass-card p-6 text-center" data-aos="zoom-in" data-aos-delay="100">
@@ -563,9 +599,10 @@
 
         <section id="connect" class="text-center pt-10" data-aos="fade-up">
              <h3 class="section-header text-center mx-auto">Join the Conversation</h3>
-             <p class="max-w-2xl mx-auto prose-custom mb-10">
-                 My journey in pediatric health, research, and innovation is ongoing. I am always eager to connect with fellow professionals, researchers, and organizations who share a passion for improving child health outcomes in Tanzania and beyond. Whether you have a collaboration opportunity, a research idea, or just want to discuss healthcare innovation, I welcome you to reach out.
+             <p class="max-w-2xl mx-auto prose-custom text-center mb-10">
+                 <span class="typewriter-container"><span class="typewriter-text" data-text="My journey in pediatric health, research, and innovation is ongoing. I am always eager to connect with fellow professionals, researchers, and organizations who share a passion for improving child health outcomes in Tanzania and beyond. Whether you have a collaboration opportunity, a research idea, or just want to discuss healthcare innovation, I welcome you to reach out.">My journey in pediatric health, research, and innovation is ongoing. I am always eager to connect with fellow professionals, researchers, and organizations who share a passion for improving child health outcomes in Tanzania and beyond. Whether you have a collaboration opportunity, a research idea, or just want to discuss healthcare innovation, I welcome you to reach out.</span></span>
              </p>
+
              <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
                  <a href="mailto:rashid.mbuma@scholar.aku.edu" class="btn text-lg">
                      <i class="fas fa-envelope mr-2"></i> Email Me
@@ -697,44 +734,59 @@
         highlightNavLink();
 
 
-        // Contact Form Submission (Placeholder - Replace with your EmailJS or backend logic)
-        const contactForm = document.getElementById('contact-form');
-        const formStatus = document.getElementById('form-status');
+        // Typewriter Effect Script
+        document.addEventListener('DOMContentLoaded', () => {
+            const typewriterTexts = document.querySelectorAll('.typewriter-text');
 
-        if (contactForm && formStatus) {
-            contactForm.addEventListener('submit', async function(e) {
-                e.preventDefault();
+            const observerOptions = {
+                root: null, // Use the viewport as the root
+                rootMargin: '0px',
+                threshold: 0.5 // Trigger when 50% of the element is visible
+            };
 
-                formStatus.textContent = 'Sending...';
-                formStatus.className = 'text-center mt-4 text-sm text-gray-400'; // Reset status styling
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const targetElement = entry.target;
+                        const text = targetElement.getAttribute('data-text');
+                         // Check if text is available before attempting animation
+                         if (text) {
+                            targetElement.textContent = ''; // Clear initial text
+                            targetElement.style.width = '0%'; // Start with zero width for animation
 
-                // Replace with your actual EmailJS send code or backend fetch
-                /*
-                emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this, 'YOUR_USER_ID')
-                    .then((result) => {
-                        console.log('SUCCESS!', result.text);
-                        formStatus.textContent = 'Message sent successfully!';
-                        formStatus.className = 'text-center mt-4 text-sm text-green-500'; // Success styling
-                        contactForm.reset();
-                    }, (error) => {
-                        console.error('FAILED...', error);
-                        formStatus.textContent = 'Failed to send message. Please try again.';
-                         formStatus.className = 'text-center mt-4 text-sm text-red-500'; // Error styling
-                    });
-                */
+                            // Use a custom property to control the typing animation duration
+                            const typingSpeed = 30; // milliseconds per character
+                            const animationDuration = text.length * typingSpeed;
 
-                // Placeholder for demonstration:
-                 setTimeout(() => {
-                     formStatus.textContent = 'Message sent successfully! (Placeholder)';
-                      formStatus.className = 'text-center mt-4 text-sm text-green-500'; // Success styling
-                     contactForm.reset();
-                 }, 2000); // Simulate a delay
+                            // Apply animation properties directly
+                            targetElement.style.animation = `typing ${animationDuration}ms steps(${text.length}, end) forwards, blink-caret .75s step-end infinite`;
 
+                            // Set the text content after a small delay to allow CSS animation to start
+                            setTimeout(() => {
+                                targetElement.textContent = text;
+                            }, 10); // Small delay
+                         } else {
+                             // If no data-text, just show the original content (if any)
+                             targetElement.textContent = targetElement.textContent.trim();
+                         }
+
+
+                        observer.unobserve(targetElement); // Stop observing once animation is triggered
+                    }
+                });
+            }, observerOptions);
+
+            // Observe each typewriter text element
+            typewriterTexts.forEach(textElement => {
+                // Store the original text in a data attribute
+                // Ensure the text content is correctly captured before clearing
+                const originalText = textElement.textContent.trim();
+                textElement.setAttribute('data-text', originalText);
+                // Clear the initial text content so the animation can build it up
+                textElement.textContent = '';
+                observer.observe(textElement);
             });
-        } else {
-            console.error("Contact form or status element not found!");
-        }
-
+        });
 
     </script>
 
