@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.js" rel="stylesheet">
 
     <style>
         /* Custom CSS from the previous example, adapted */
@@ -360,17 +360,15 @@
         .typewriter-text {
             display: inline-block; /* Needed for the cursor */
             overflow: hidden; /* Hide the overflowing text */
-            white-space: nowrap; /* Prevent text from wrapping */
+            /* Removed white-space: nowrap; */
             border-right: 2px solid white; /* Blinking cursor */
-            animation: typing 0s steps(40, end), blink-caret .75s step-end infinite; /* Initial animation duration is 0 */
+            /* Removed typing animation from here */
              font-family: 'Roboto', sans-serif; /* Apply Roboto font */
         }
 
-        /* Typing animation (controlled by JS by setting --characters variable) */
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
+        /* Typing animation (controlled by JS) */
+        /* Removed @keyframes typing */
+
 
         /* Blinking cursor animation */
         @keyframes blink-caret {
@@ -422,7 +420,7 @@
 
         <section id="introduction" class="text-center mb-24 pt-20" data-aos="fade-in" data-aos-delay="100">
              <div id="profile-image-wrapper" class="relative inline-block" data-aos="zoom-in" data-aos-delay="300">
-                 <img id="profile-image" src="./rashid.jpg" alt="Rashid Mbuma" class="profile-img w-40 h-40 rounded-full mx-auto mb-8 shadow-xl relative z-10 object-cover">
+                 <img id="profile-image" src="./rashid.png" alt="Rashid Mbuma" class="profile-img w-40 h-40 rounded-full mx-auto mb-8 shadow-xl relative z-10 object-cover">
              </div>
              <h1 id="header-name" class="text-5xl md:text-6xl font-bold mb-3 text-white relative z-6" data-aos="fade-down" data-aos-delay="400">Rashid Mbuma</h1>
              <h2 id="header-title" class="text-2xl md:text-3xl accent-gradient font-semibold mb-6 relative z-6" data-aos="fade-down" data-aos-delay="500">Pediatrics Resident | Implementation Science Researcher | Healthcare Innovator</h2>
@@ -491,7 +489,7 @@
                      <div class="glass-card p-6 ml-4">
                          <h4 class="text-xl font-semibold mb-1 text-white">General Practitioner (Pediatrics Focus)</h4>
                          <p class="text-purple-300 mb-1">Care Plus Hospital</p>
-                         <p class="prose-custom-sm mb-3">Jan 2024 - August 2024</p>
+                         <p class="prose-custom-sm mb-3">Jan 2024 - Present</p>
                          <ul class="list-disc prose-custom space-y-2 pl-4">
                               <li>Provided dedicated pediatric care in outpatient and inpatient settings, managing acute and chronic conditions.</li>
                               <li>Trained nursing staff on key child health protocols, leading to measurable improvements in care delivery.</li>
@@ -590,7 +588,7 @@
                 </div>
                  <div class="glass-card p-6 text-center" data-aos="zoom-in" data-aos-delay="100">
                      <i class="fab fa-google text-4xl text-blue-400 mb-3"></i>
-                     <h4 class="text-lg font-semibold mb-1 text-white">Data Analytics Certification</h4>
+                     <h4 class="text-lg font-semibold text-white">Data Analytics Certification</h4>
                      <p class="prose-custom-sm">Completed Google's Advanced Data Analytics Certificate, enhancing skills in data-driven decision making.</p>
                  </div>
             </div>
@@ -752,19 +750,25 @@
                          // Check if text is available before attempting animation
                          if (text) {
                             targetElement.textContent = ''; // Clear initial text
-                            targetElement.style.width = '0%'; // Start with zero width for animation
+                            // Removed width: 0% and the typing animation from here
 
-                            // Use a custom property to control the typing animation duration
-                            const typingSpeed = 30; // milliseconds per character
-                            const animationDuration = text.length * typingSpeed;
+                            let i = 0;
+                            const typingSpeed = 50; // milliseconds per character
 
-                            // Apply animation properties directly
-                            targetElement.style.animation = `typing ${animationDuration}ms steps(${text.length}, end) forwards, blink-caret .75s step-end infinite`;
+                            function type() {
+                                if (i < text.length) {
+                                    targetElement.textContent += text.charAt(i);
+                                    i++;
+                                    setTimeout(type, typingSpeed);
+                                } else {
+                                    // Animation is complete, remove the blinking cursor
+                                    targetElement.style.borderRight = 'none';
+                                }
+                            }
 
-                            // Set the text content after a small delay to allow CSS animation to start
-                            setTimeout(() => {
-                                targetElement.textContent = text;
-                            }, 10); // Small delay
+                            type(); // Start the typing animation
+
+
                          } else {
                              // If no data-text, just show the original content (if any)
                              targetElement.textContent = targetElement.textContent.trim();
