@@ -381,6 +381,55 @@
              display: inline-block; /* Allow the container to shrink-wrap the text */
          }
 
+         /* Skills Item Hover Animation (Example Enhancement) */
+        .competence-item {
+            /* Existing styles */
+            display: flex;
+            align-items: center;
+            background: rgba(45, 55, 72, 0.4);
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative; /* Needed for pseudo-element */
+            overflow: hidden; /* Hide overflow from hover effect */
+        }
+        .competence-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(168, 85, 247, 0.1); /* Subtle highlight color */
+            transition: left 0.4s ease-out;
+            z-index: 0;
+        }
+        .competence-item:hover {
+            background: rgba(55, 65, 81, 0.6);
+            transform: translateX(5px);
+            border-color: rgba(168, 85, 247, 0.4);
+        }
+         .competence-item:hover::before {
+             left: 0; /* Slide in highlight on hover */
+         }
+        .competence-item i {
+            /* Existing styles */
+            margin-right: 0.75rem;
+            color: var(--gradient-mid);
+            transition: color 0.3s ease;
+            position: relative; /* Ensure icon is above pseudo-element */
+            z-index: 1;
+        }
+        .competence-item:hover i {
+            color: var(--gradient-start);
+        }
+         .competence-item span {
+             position: relative; /* Ensure text is above pseudo-element */
+             z-index: 1;
+         }
+
+
     </style>
 </head>
 <body class="gradient-bg">
@@ -420,12 +469,12 @@
 
         <section id="introduction" class="text-center mb-24 pt-20" data-aos="fade-in" data-aos-delay="100">
              <div id="profile-image-wrapper" class="relative inline-block" data-aos="zoom-in" data-aos-delay="300">
-                 <img id="profile-image" src="./rashid.jpg" alt="Rashid Mbuma" class="profile-img w-40 h-40 rounded-full mx-auto mb-8 shadow-xl relative z-10 object-cover">
+                 <img id="profile-image" src="./rashid.png" alt="Rashid Mbuma" class="profile-img w-40 h-40 rounded-full mx-auto mb-8 shadow-xl relative z-10 object-cover">
              </div>
              <h1 id="header-name" class="text-5xl md:text-6xl font-bold mb-3 text-white relative z-6" data-aos="fade-down" data-aos-delay="400">Rashid Mbuma</h1>
              <h2 id="header-title" class="text-2xl md:text-3xl accent-gradient font-semibold mb-6 relative z-6" data-aos="fade-down" data-aos-delay="500">Pediatrics Resident | Implementation Science Researcher | Healthcare Innovator</h2>
              <p class="max-w-3xl mx-auto prose-custom text-center mb-10" data-aos="fade-up" data-aos-delay="600">
-                 <span class="typewriter-container"><span class="typewriter-text" data-text="Welcome to my story. I am a dedicated Medical Doctor specializing in Pediatrics and Child Health, driven by a deep commitment to improving health outcomes in Tanzania through evidence-based practice, research, and innovation. My journey is one of continuous learning, applying scientific rigor to real-world health challenges, and advocating for vulnerable populations.">Welcome to my story. I am a dedicated Medical Doctor specializing in Pediatrics and Child Health, driven by a deep commitment to improving health outcomes in Tanzania through evidence-based practice, research, and innovation. My journey is one of continuous learning, applying scientific rigor to real-world health challenges, and advocating for vulnerable populations.</span></span>
+                 <span class="typewriter-container"><span class="typewriter-text" data-text="Welcome to my story. I am a dedicated Medical Doctor specializing in Pediatrics and Child Health, driven by a deep commitment to improving health outcomes in Tanzania through evidence-based practice, research, and innovation.">Welcome to my story. I am a dedicated Medical Doctor specializing in Pediatrics and Child Health, driven by a deep commitment to improving health outcomes in Tanzania through evidence-based practice, research, and innovation.</span></span>
              </p>
              <div class="flex justify-center items-center space-x-6 text-3xl text-gray-400 mt-8" data-aos="fade-up" data-aos-delay="700">
                  <a href="mailto:rashid.mbuma@scholar.aku.edu" class="link-icon" title="Email"><i class="fas fa-envelope"></i></a>
@@ -441,7 +490,7 @@
         <section id="foundations" class="mb-20" data-aos="fade-up">
             <h3 class="section-header text-center mx-auto">Laying the Foundations</h3>
              <p class="max-w-3xl mx-auto prose-custom text-center mb-10">
-                 <span class="typewriter-container"><span class="typewriter-text" data-text="Every journey begins with a first step. Mine was rooted in a passion for science and a desire to make a tangible difference in people's lives. My early education and medical training provided the essential knowledge and skills that would shape my path.">Every journey begins with a first step. Mine was rooted in a passion for science and a desire to make a tangible difference in people's lives. My early education and medical training provided the essential knowledge and skills that would shape my path.</span></span>
+                 <span class="typewriter-container"><span class="typewriter-text" data-text="Every journey begins with a first step. Mine was rooted in a passion for science and a desire to make a tangible difference. My early education and medical training provided the essential knowledge and skills that shaped my path.">Every journey begins with a first step. Mine was rooted in a passion for science and a desire to make a tangible difference. My early education and medical training provided the essential knowledge and skills that shaped my path.</span></span>
              </p>
             <div class="space-y-10 max-w-3xl mx-auto">
                 <div class="glass-card p-8 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6" data-aos="fade-right">
@@ -450,7 +499,7 @@
                         <h4 class="text-xl font-semibold text-white">Doctor of Medicine (MD)</h4>
                         <p class="text-purple-300">Muhimbili University of Health and Allied Sciences (MUHAS), Dar-es-Salaam</p>
                         <p class="prose-custom-sm">2017 - 2022 | GPA: 4.0</p>
-                        <p class="mt-3 prose-custom">My medical degree provided a comprehensive understanding of human health and disease. During this time, I also explored the intersection of health and technology, sparking an interest that continues to grow. My research focused on the prevalence of pediatric CSOM among patients attending the ENT clinic at MNH.</p>
+                        <p class="mt-3 prose-custom">My medical degree provided a comprehensive understanding of human health and disease. I also explored the intersection of health and technology. My research focused on pediatric CSOM at MNH.</p>
                     </div>
                 </div>
                  <div class="glass-card p-8 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6" data-aos="fade-left">
@@ -459,7 +508,7 @@
                          <h4 class="text-xl font-semibold text-white">Early Academic Journey</h4>
                          <p class="text-purple-300">St. Mary's Ulete & Mzumbe Secondary School</p>
                          <p class="prose-custom-sm">2011 - 2017</p>
-                         <p class="mt-3 prose-custom">These formative years instilled in me the value of determination and rigorous study. Excelling in sciences, I achieved national recognition, which paved the way for my entry into medical school.</p>
+                         <p class="mt-3 prose-custom">These formative years instilled determination. Excelling in sciences, I achieved national recognition, paving the way for medical school.</p>
                      </div>
                  </div>
             </div>
@@ -468,7 +517,7 @@
         <section id="building-expertise" class="mb-20" data-aos="fade-up">
             <h3 class="section-header text-center mx-auto">Building Expertise: Clinical Practice</h3>
              <p class="max-w-3xl mx-auto prose-custom text-center mb-10">
-                 <span class="typewriter-container"><span class="typewriter-text" data-text="Putting knowledge into practice is where the real learning happens. My professional roles have allowed me to deepen my clinical skills, particularly in pediatric care, and understand the complexities of healthcare delivery on the ground.">Putting knowledge into practice is where the real learning happens. My professional roles have allowed me to deepen my clinical skills, particularly in pediatric care, and understand the complexities of healthcare delivery on the ground.</span></span>
+                 <span class="typewriter-container"><span class="typewriter-text" data-text="Putting knowledge into practice is where the real learning happens. My professional roles deepened my clinical skills, especially in pediatric care, and understanding healthcare delivery.">Putting knowledge into practice is where the real learning happens. My professional roles deepened my clinical skills, especially in pediatric care, and understanding healthcare delivery.</span></span>
              </p>
             <div class="timeline max-w-3xl mx-auto">
                  <div class="timeline-item" data-aos="fade-in">
@@ -478,9 +527,9 @@
                          <p class="text-purple-300 mb-1">Aga Khan University Hospital</p>
                          <p class="prose-custom-sm mb-3">2024 - Present</p>
                          <ul class="list-disc prose-custom space-y-2 pl-4">
-                             <li>Engaging in the comprehensive management of complex pediatric cases within multidisciplinary teams, including in the NICU and PICU.</li>
-                             <li>Developing an implementation research thesis focused on integrating nutrition counseling into child health services.</li>
-                             <li>Contributing to quality improvement initiatives, such as reducing neonatal hypothermia.</li>
+                             <li>Managing complex pediatric cases in NICU, PICU, and general pediatrics.</li>
+                             <li>Developing research on integrating nutrition counseling.</li>
+                             <li>Contributing to quality improvement initiatives.</li>
                          </ul>
                      </div>
                  </div>
@@ -491,8 +540,8 @@
                          <p class="text-purple-300 mb-1">Care Plus Hospital</p>
                          <p class="prose-custom-sm mb-3">Jan 2024 - Present</p>
                          <ul class="list-disc prose-custom space-y-2 pl-4">
-                              <li>Provided dedicated pediatric care in outpatient and inpatient settings, managing acute and chronic conditions.</li>
-                              <li>Trained nursing staff on key child health protocols, leading to measurable improvements in care delivery.</li>
+                              <li>Provided pediatric care in outpatient and inpatient settings.</li>
+                              <li>Trained nursing staff on child health protocols.</li>
                          </ul>
                      </div>
                  </div>
@@ -503,8 +552,8 @@
                          <p class="text-purple-300 mb-1">Muhimbili National Hospital</p>
                          <p class="prose-custom-sm mb-3">2022 - 2023</p>
                          <ul class="list-disc prose-custom space-y-2 pl-4">
-                             <li>Gained broad clinical experience across major specialties, including significant exposure to pediatric nutritional care.</li>
-                             <li>Contributed to hospital-wide quality improvement projects, directly impacting patient outcomes.</li>
+                             <li>Gained broad clinical experience, including pediatric nutritional care.</li>
+                             <li>Contributed to hospital quality improvement projects.</li>
                          </ul>
                      </div>
                  </div>
@@ -514,7 +563,7 @@
         <section id="impact-innovation" class="mb-20" data-aos="fade-up">
             <h3 class="section-header text-center mx-auto">Driving Impact Through Research & Community</h3>
              <p class="max-w-3xl mx-auto prose-custom text-center mb-10">
-                 <span class="typewriter-container"><span class="typewriter-text" data-text="My commitment extends beyond clinical walls. Through research and community engagement, I strive to identify scalable solutions, advocate for better health policies, and empower communities to improve their well-being.">My commitment extends beyond clinical walls. Through research and community engagement, I strive to identify scalable solutions, advocate for better health policies, and empower communities to improve their well-being.</span></span>
+                 <span class="typewriter-container"><span class="typewriter-text" data-text="My commitment extends beyond clinical walls. Through research and community engagement, I strive to identify scalable solutions and advocate for better health policies.">My commitment extends beyond clinical walls. Through research and community engagement, I strive to identify scalable solutions and advocate for better health policies.</span></span>
              </p>
              <div class="space-y-10 max-w-3xl mx-auto">
                 <div class="glass-card p-8 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6" data-aos="fade-right">
@@ -523,7 +572,7 @@
                         <h4 class="text-xl font-semibold text-white">Implementation Science Research</h4>
                         <p class="prose-custom-sm">Aga Khan University & MUHAS</p>
                         <p class="prose-custom-sm">2022 - Present</p>
-                        <p class="mt-3 prose-custom">My research focuses on translating evidence into practice, particularly in pediatric nutrition and addressing hearing loss. I am dedicated to designing studies that inform effective public health interventions and policy.</p>
+                        <p class="mt-3 prose-custom">Research focuses on translating evidence into practice, particularly in pediatric nutrition and hearing loss. Designing studies to inform public health interventions.</p>
                     </div>
                 </div>
                 <div class="glass-card p-8 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6" data-aos="fade-left">
@@ -532,7 +581,7 @@
                         <h4 class="text-xl font-semibold text-white">Community Health Initiatives</h4>
                          <p class="prose-custom-sm">IRIS Nutrition Initiative & Afya Check Health Camps</p>
                         <p class="prose-custom-sm">2019 - 2022</p>
-                        <p class="mt-3 prose-custom">Actively involved in volunteer efforts to provide health education, conduct screenings, and mobilize resources for underserved communities, directly contributing to improved health awareness and outcomes.</p>
+                        <p class="mt-3 prose-custom">Involved in volunteer efforts providing health education, screenings, and mobilizing resources for underserved communities.</p>
                     </div>
                 </div>
                  <div class="glass-card p-8 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6" data-aos="fade-right" data-aos-delay="100">
@@ -540,7 +589,7 @@
                      <div>
                          <h4 class="text-xl font-semibold text-white">Pedia Pulse: Medical Education Platform</h4>
                          <p class="prose-custom-sm">Initiative for Medical Doctors</p>
-                         <p class="mt-3 prose-custom">Developed Pedia Pulse, a medical education platform designed to provide medical doctors with easily digestible, evidence-based information on pediatric health, facilitating continuous learning and improved clinical practice.</p>
+                         <p class="mt-3 prose-custom">Developed Pedia Pulse to provide easily digestible, evidence-based pediatric health info for doctors, facilitating continuous learning.</p>
                      </div>
                  </div>
             </div>
@@ -549,47 +598,47 @@
         <section id="skills" class="mb-20" data-aos="fade-up">
             <h3 class="section-header text-center mx-auto">Tools of the Trade: Skills</h3>
              <p class="max-w-3xl mx-auto prose-custom text-center mb-10">
-                 <span class="typewriter-container"><span class="typewriter-text" data-text="Equipped with a diverse set of technical and analytical skills, I am prepared to tackle complex challenges in healthcare research and implementation.">Equipped with a diverse set of technical and analytical skills, I am prepared to tackle complex challenges in healthcare research and implementation.</span></span>
+                 <span class="typewriter-container"><span class="typewriter-text" data-text="Equipped with diverse technical and analytical skills to tackle complex challenges in healthcare research and implementation.">Equipped with diverse technical and analytical skills to tackle complex challenges in healthcare research and implementation.</span></span>
              </p>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-                <div class="competence-item" data-aos="zoom-in" data-aos-delay="50"><i class="fas fa-chart-pie fa-fw text-lg"></i> SPSS</div>
-                <div class="competence-item" data-aos="zoom-in" data-aos-delay="150"><i class="fab fa-python fa-fw text-lg"></i> Python (Pandas)</div>
-                <div class="competence-item" data-aos="zoom-in" data-aos-delay="200"><i class="fas fa-book-open fa-fw text-lg"></i> Cochrane Review</div>
-                <div class="competence-item" data-aos="zoom-in" data-aos-delay="250"><i class="fas fa-bookmark fa-fw text-lg"></i> Zotero</div>
-                 <div class="competence-item" data-aos="zoom-in" data-aos-delay="300"><i class="fas fa-database fa-fw text-lg"></i> SQL</div>
-                 <div class="competence-item" data-aos="zoom-in" data-aos-delay="350"><i class="fas fa-chart-line fa-fw text-lg"></i> Regression Analysis</div>
-                 <div class="competence-item" data-aos="zoom-in" data-aos-delay="400"><i class="fab fa-react fa-fw text-lg"></i> React</div>
-                 <div class="competence-item" data-aos="zoom-in" data-aos-delay="450"><i class="fab fa-js fa-fw text-lg"></i> Javascript</div>
-                 <div class="competence-item" data-aos="zoom-in" data-aos-delay="500"><i class="fas fa-language fa-fw text-lg"></i> Swahili (Native)</div>
-                 <div class="competence-item" data-aos="zoom-in" data-aos-delay="550"><i class="fas fa-language fa-fw text-lg"></i> English (IELTS 8.0)</div>
+                <div class="competence-item" data-aos="zoom-in" data-aos-delay="50"><span><i class="fas fa-chart-pie fa-fw text-lg"></i> SPSS</span></div>
+                <div class="competence-item" data-aos="zoom-in" data-aos-delay="150"><span><i class="fab fa-python fa-fw text-lg"></i> Python (Pandas)</span></div>
+                <div class="competence-item" data-aos="zoom-in" data-aos-delay="200"><span><i class="fas fa-book-open fa-fw text-lg"></i> Cochrane Review</span></div>
+                <div class="competence-item" data-aos="zoom-in" data-aos-delay="250"><span><i class="fas fa-bookmark fa-fw text-lg"></i> Zotero</span></div>
+                 <div class="competence-item" data-aos="zoom-in" data-aos-delay="300"><span><i class="fas fa-database fa-fw text-lg"></i> SQL</span></div>
+                 <div class="competence-item" data-aos="zoom-in" data-aos-delay="350"><span><i class="fas fa-chart-line fa-fw text-lg"></i> Regression Analysis</span></div>
+                 <div class="competence-item" data-aos="zoom-in" data-aos-delay="400"><span><i class="fab fa-react fa-fw text-lg"></i> React</span></div>
+                 <div class="competence-item" data-aos="zoom-in" data-aos-delay="450"><span><i class="fab fa-js fa-fw text-lg"></i> Javascript</span></div>
+                 <div class="competence-item" data-aos="zoom-in" data-aos-delay="500"><span><i class="fas fa-language fa-fw text-lg"></i> Swahili (Native)</span></div>
+                 <div class="competence-item" data-aos="zoom-in" data-aos-delay="550"><span><i class="fas fa-language fa-fw text-lg"></i> English (IELTS 8.0)</span></div>
             </div>
         </section>
 
          <section id="recognition" class="mb-20" data-aos="fade-up">
             <h3 class="section-header text-center mx-auto">Milestones & Recognition</h3>
              <p class="max-w-3xl mx-auto prose-custom text-center mb-10">
-                 <span class="typewriter-container"><span class="typewriter-text" data-text="Along the way, certain achievements have marked significant steps in my development and impact.">Along the way, certain achievements have marked significant steps in my development and impact.</span></span>
+                 <span class="typewriter-container"><span class="typewriter-text" data-text="Key achievements marking significant steps in my development and impact.">Key achievements marking significant steps in my development and impact.</span></span>
              </p>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                 <div class="glass-card p-6 text-center" data-aos="zoom-in" data-aos-delay="100">
                     <i class="fas fa-star text-4xl accent-gradient mb-3"></i>
                     <h4 class="text-lg font-semibold mb-1 text-white">Clinical Excellence</h4>
-                    <p class="prose-custom-sm">Achieved high patient satisfaction, reflecting a commitment to compassionate and effective pediatric care.</p>
+                    <p class="prose-custom-sm">Achieved high patient satisfaction, reflecting compassionate and effective pediatric care.</p>
                 </div>
                 <div class="glass-card p-6 text-center" data-aos="zoom-in" data-aos-delay="200">
                     <i class="fas fa-trophy text-4xl accent-gradient mb-3"></i>
                     <h4 class="text-lg font-semibold mb-1 text-white">Academic Distinction</h4>
-                    <p class="prose-custom-sm">Recognized nationally for academic performance during early education.</p>
+                    <p class="prose-custom-sm">Recognized nationally for academic performance.</p>
                 </div>
                 <div class="glass-card p-6 text-center" data-aos="zoom-in" data-aos-delay="300">
                     <i class="fas fa-users-cog text-4xl accent-gradient mb-3"></i>
                     <h4 class="text-lg font-semibold mb-1 text-white">Leadership & Innovation</h4>
-                    <p class="prose-custom-sm">Awarded for leadership in digital health, demonstrating a commitment to leveraging technology for health improvement.</p>
+                    <p class="prose-custom-sm">Awarded for leadership in digital health innovations.</p>
                 </div>
                  <div class="glass-card p-6 text-center" data-aos="zoom-in" data-aos-delay="100">
                      <i class="fab fa-google text-4xl text-blue-400 mb-3"></i>
                      <h4 class="text-lg font-semibold text-white">Data Analytics Certification</h4>
-                     <p class="prose-custom-sm">Completed Google's Advanced Data Analytics Certificate, enhancing skills in data-driven decision making.</p>
+                     <p class="prose-custom-sm">Completed Google's Advanced Data Analytics Certificate.</p>
                  </div>
             </div>
         </section>
@@ -598,7 +647,7 @@
         <section id="connect" class="text-center pt-10" data-aos="fade-up">
              <h3 class="section-header text-center mx-auto">Join the Conversation</h3>
              <p class="max-w-2xl mx-auto prose-custom text-center mb-10">
-                 <span class="typewriter-container"><span class="typewriter-text" data-text="My journey in pediatric health, research, and innovation is ongoing. I am always eager to connect with fellow professionals, researchers, and organizations who share a passion for improving child health outcomes in Tanzania and beyond. Whether you have a collaboration opportunity, a research idea, or just want to discuss healthcare innovation, I welcome you to reach out.">My journey in pediatric health, research, and innovation is ongoing. I am always eager to connect with fellow professionals, researchers, and organizations who share a passion for improving child health outcomes in Tanzania and beyond. Whether you have a collaboration opportunity, a research idea, or just want to discuss healthcare innovation, I welcome you to reach out.</span></span>
+                 <span class="typewriter-container"><span class="typewriter-text" data-text="My journey is ongoing. Let's connect to discuss pediatric health, research, or healthcare innovation.">My journey is ongoing. Let's connect to discuss pediatric health, research, or healthcare innovation.</span></span>
              </p>
 
              <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
