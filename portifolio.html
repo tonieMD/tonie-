@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rashid Mbuma - My Journey in Pediatrics, Research, and Innovation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* Custom CSS from the previous example, adapted */
+        :root {
+            --gradient-start: #6366f1; /* Indigo */
+            --gradient-mid: #a855f7;    /* Purple */
+            --gradient-end: #ec4899;    /* Pink */
+            --anim-duration: 0.6s; /* Slightly longer duration */
+        }
+        html {
+             scroll-padding-top: 80px; /* Offset for fixed navbar */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #e0e0e0; /* Light gray text */
+            scroll-behavior: smooth;
+            overflow-x: hidden; /* Prevent horizontal scroll from AOS */
+             font-size: 16.5px; /* Slightly larger base font */
+        }
+        .gradient-bg {
+            /* Dark gradient background */
+            background: linear-gradient(135deg, #111827 0%, #1f2937 50%, #111827 100%);
+        }
+        .accent-gradient {
+            /* Text gradient */
+            background: linear-gradient(90deg, var(--gradient-start) 0%, var(--gradient-mid) 50%, var(--gradient-end) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .accent-gradient-bg {
+             /* Background gradient */
+             background: linear-gradient(90deg, var(--gradient-start) 0%, var(--gradient-mid) 50%, var(--gradient-end) 100%);
+        }
+        .glass-card {
+            /* Glassmorphism effect */
+            background: rgba(31, 41, 55, 0.6); /* Darker background with transparency */
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle white border */
+            border-radius: 1rem;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4); /* Larger shadow */
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bounce effect on hover */
+        }
+        .glass-card:hover {
+            transform: translateY(-8px) scale(1.03); /* Lift and slightly scale */
+            box-shadow: 0 12px 45px 0 rgba(0, 0, 0, 0.6), 0 0 25px rgba(168, 85, 247, 0.5); /* Enhanced glow on hover */
+            border-color: rgba(168, 85, 247, 0.6); /* Accent border on hover */
+            background: rgba(45, 55, 72, 0.75); /* Slightly less transparent on hover */
+        }
+        .section-header {
+            /* Styling for section titles */
+            font-size: 2.25rem; /* text-3xl */
+            font-weight: 700; /* font-bold */
+            margin-bottom: 3rem; /* mb-12 */
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.75rem; /* Space for underline */
+            color: #f0f0f0; /* Light color */
+        }
+        .section-header::after {
+            /* Underline effect for section titles */
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px; /* Initial width */
+            height: 4px;
+            background: linear-gradient(90deg, var(--gradient-start) 0%, var(--gradient-mid) 50%, var(--gradient-end) 100%); /* Gradient underline */
+            border-radius: 2px;
+            transition: width 0.3s ease-in-out; /* Animation on hover (though not implemented here, good practice) */
+        }
+         /* Timeline Styles */
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem; /* Space for the line and icon */
+            padding-bottom: 2.5rem; /* Space between items */
+            border-left: 3px solid #4b5563; /* Tailwind gray-600 */
+            transition: border-left-color 0.3s ease;
+        }
+        .timeline-item:last-child {
+            border-left-color: transparent; /* Hide line on the last item */
+            padding-bottom: 0;
+        }
+        .timeline-item:hover {
+             border-left-color: var(--gradient-mid); /* Accent color on hover */
+        }
+        .timeline-item:hover .timeline-icon {
+            transform: scale(1.2); /* Scale icon on hover */
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.6); /* Glow on icon hover */
+        }
+        .timeline-icon {
+            position: absolute;
+            left: -0.9rem; /* Position dot/icon on the line */
+            top: 0.25rem; /* Align with the top of the item content */
+            width: 1.8rem;
+            height: 1.8rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        /* Particles.js background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1; /* Send to back */
+        }
+        main {
+            position: relative;
+            z-index: 1; /* Ensure content is above particles */
+        }
+        section {
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 10; /* Ensure nav is above other content */
+            background: rgba(17, 24, 39, 0.85); /* Dark background with transparency */
+            backdrop-filter: blur(10px); /* Glassmorphism blur */
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0, 0.4); /* Shadow below nav */
+            height: 70px; /* Fixed height */
+             display: flex; /* Use flex for centering content vertically */
+             align-items: center;
+        }
+        nav a {
+            position: relative;
+            padding: 0.25rem 0;
+            transition: color 0.3s ease;
+            color: #cbd5e1; /* Light gray text */
+        }
+        nav a:hover {
+             color: #ffffff; /* White text on hover */
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -4px; /* Position underline below text */
+            width: 0; /* Start hidden */
+            height: 2px;
+            background: linear-gradient(90deg, var(--gradient-start) 0%, var(--gradient-mid) 50%, var(--gradient-end) 100%); /* Gradient underline */
+            transition: width 0.3s ease-out;
+        }
+        nav a:hover::after {
+            width: 100%; /* Expand underline on hover */
+        }
+
+        /* --- Header Ripple Animation --- */
+        #main-header {
+            position: relative;
+        }
+        #profile-image-wrapper {
+            position: relative; /* Needed for pseudo-element */
+            display: inline-block; /* Fit content */
+            cursor: pointer;
+        }
+        #profile-image {
+            border: 5px solid transparent;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end)) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            transition: transform calc(var(--anim-duration) * 0.8) ease-out, /* Slightly different timing */
+                         box-shadow var(--anim-duration) ease-in-out;
+            position: relative; /* Keep relative */
+            z-index: 10; /* Image on top */
+        }
+        /* Ripple pseudo-element */
+        #profile-image-wrapper::after {
+            content: '';
+            position: absolute;
+            /* Center it on the wrapper */
+            top: 50%;
+            left: 50%;
+            width: 100%; /* Start same size as wrapper */
+            height: 100%;
+            border-radius: 50%;
+            /* Ripple gradient - transparent center, fades to purple, then transparent edge */
+            background: radial-gradient(circle,
+                rgba(168, 85, 247, 0) 0%,        /* Transparent center */
+                rgba(168, 85, 247, 0.4) 40%,     /* Purple ring */
+                rgba(168, 85, 247, 0.1) 60%,     /* Fading edge */
+                rgba(168, 85, 247, 0) 70%        /* Transparent outer */
+            );
+            /* Start scaled down and invisible */
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            z-index: 5; /* Ripple below image, potentially above text */
+            transition: transform var(--anim-duration) cubic-bezier(0.23, 1, 0.32, 1), /* Ease out quint */
+                         opacity calc(var(--anim-duration) * 0.8) ease-out;
+            pointer-events: none; /* Don't block hover on image */
+        }
+
+        #header-name, #header-title {
+            /* Transition for text effects */
+            transition: opacity calc(var(--anim-duration) * 0.7) ease-out,
+                         filter calc(var(--anim-duration) * 0.7) ease-out,
+                         transform calc(var(--anim-duration) * 0.7) ease-out;
+             transition-delay: 0s; /* Start immediately */
+             position: relative; /* Needed for z-index */
+             z-index: 6; /* Ensure text is initially above ripple's start */
+        }
+
+        /* Hover state triggered by wrapper */
+        #profile-image-wrapper:hover #profile-image {
+            transform: scale(1.08) translateY(-5px); /* Lift and scale image */
+            box-shadow: 0 0 35px rgba(168, 85, 247, 0.6), 0 0 15px rgba(236, 72, 153, 0.4); /* Glow */
+        }
+        #profile-image-wrapper:hover::after {
+            /* Expand ripple significantly, fade in */
+            transform: translate(-50%, -50%) scale(6); /* Adjust scale factor as needed */
+            opacity: 1;
+        }
+        /* Select text elements when wrapper is hovered */
+        #profile-image-wrapper:hover ~ #header-name,
+        #profile-image-wrapper:hover ~ #header-title {
+            opacity: 0;
+            filter: blur(4px); /* Blur text */
+            transform: translateY(15px); /* Move text down slightly */
+            transition-delay: 0.05s; /* Delay text fade slightly after ripple starts */
+        }
+        /* --- End Header Ripple Animation --- */
+
+
+        /* Competencies styles */
+        .competence-item {
+            display: flex;
+            align-items: center;
+            background: rgba(45, 55, 72, 0.4); /* Dark background with transparency */
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .competence-item:hover {
+            background: rgba(55, 65, 81, 0.6); /* Less transparent on hover */
+            transform: translateX(5px); /* Slide effect on hover */
+            border-color: rgba(168, 85, 247, 0.4); /* Accent border on hover */
+        }
+        .competence-item i {
+            margin-right: 0.75rem;
+            color: var(--gradient-mid); /* Accent color for icon */
+            transition: color 0.3s ease;
+        }
+        .competence-item:hover i {
+            color: var(--gradient-start); /* Change icon color on hover */
+        }
+        .link-icon {
+             transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .link-icon:hover {
+             color: var(--gradient-mid);
+             transform: scale(1.1);
+        }
+        .prose-custom {
+             font-size: 1.1rem;
+             line-height: 1.7;
+             color: #d1d5db; /* Light gray text */
+        }
+        .prose-custom-sm {
+             font-size: 1rem;
+             color: #9ca3af; /* Lighter gray text */
+        }
+        .prose-custom ul {
+             list-style-position: outside;
+             padding-left: 1.5rem;
+        }
+        /* AOS pointer events fix */
+        [data-aos][data-aos].aos-animate {
+             pointer-events: auto;
+        }
+        body.aos-init [data-aos] {
+             pointer-events: none;
+        }
+
+         /* Contact form input styles */
+        .form-input {
+            background-color: rgba(31, 41, 55, 0.7); /* Dark background with transparency */
+            border: 1px solid rgba(75, 85, 99, 0.5); /* Gray border */
+            color: #e0e0e0; /* Light text */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .form-input:focus {
+            border-color: var(--gradient-mid); /* Accent border on focus */
+            box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.3); /* Accent glow on focus */
+            background-color: rgba(45, 55, 72, 0.8); /* Slightly less transparent on focus */
+        }
+         .form-input::placeholder {
+             color: #9ca3af; /* Lighter placeholder text */
+         }
+
+         /* Button styles (defined in CSS variables and classes) */
+         .btn {
+             display: inline-block;
+             padding: 0.8rem 1.8rem;
+             border-radius: 0.75rem;
+             font-weight: 600;
+             text-align: center;
+             transition: all 0.3s ease;
+             background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid));
+             color: white;
+             border: none;
+             box-shadow: 0 4px 15px rgba(168, 85, 247, 0.4);
+             position: relative;
+             overflow: hidden;
+             z-index: 1;
+         }
+         .btn::before {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: -100%;
+             width: 100%;
+             height: 100%;
+             background: linear-gradient(90deg, rgba(255,255,255,0.15), rgba(255,255,255,0.4));
+             transition: left 0.4s ease;
+             z-index: -1;
+         }
+         .btn:hover {
+             transform: translateY(-3px);
+             box-shadow: 0 8px 25px rgba(168, 85, 247, 0.6);
+         }
+         .btn:hover::before {
+              left: 100%;
+           }
+          .btn-secondary {
+              background: rgba(45, 55, 72, 0.7);
+              border: 1px solid var(--gradient-mid);
+              box-shadow: none;
+          }
+          .btn-secondary:hover {
+              background: rgba(55, 65, 81, 0.9);
+              box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+          }
+
+    </style>
+</head>
+<body class="gradient-bg">
+    <div id="particles-js"></div>
+
+    <nav>
+        <div class="container mx-auto px-6 flex justify-between items-center h-full">
+            <div class="text-2xl font-bold accent-gradient">Rashid Mbuma</div>
+            <div class="hidden md:flex space-x-6 lg:space-x-8">
+                <a href="#introduction">Introduction</a>
+                <a href="#foundations">Foundations</a>
+                <a href="#building-expertise">Building Expertise</a>
+                <a href="#impact-innovation">Impact & Innovation</a>
+                <a href="#skills">Skills</a>
+                <a href="#recognition">Recognition</a>
+                <a href="#connect">Connect</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none text-gray-300 hover:text-white">
+                 <i id="hamburger-icon" class="fas fa-bars text-2xl"></i>
+                 <i id="close-icon" class="fas fa-times text-2xl hidden"></i>
+             </button>
+        </div>
+         <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-gray-900 shadow-lg py-4">
+             <ul class="flex flex-col items-center space-y-4">
+                 <li><a href="#introduction" class="nav-link block text-lg text-white hover:text-blue-500">Introduction</a></li>
+                 <li><a href="#foundations" class="nav-link block text-lg text-white hover:text-blue-500">Foundations</a></li>
+                 <li><a href="#building-expertise" class="nav-link block text-lg text-white hover:text-blue-500">Building Expertise</a></li>
+                 <li><a href="#impact-innovation" class="nav-link block text-lg text-white hover:text-blue-500">Impact & Innovation</a></li>
+                 <li><a href="#skills" class="nav-link block text-lg text-white hover:text-blue-500">Skills</a></li>
+                 <li><a href="#recognition" class="nav-link block text-lg text-white hover:text-blue-500">Recognition</a></li>
+                 <li><a href="#connect" class="nav-link block text-lg text-white hover:text-blue-500">Connect</a></li>
+             </ul>
+         </div>
+    </nav>
+
+    <main class="container mx-auto px-6 py-16">
+
+        <section id="introduction" class="text-center mb-24 pt-20" data-aos="fade-in" data-aos-delay="100">
+             <div id="profile-image-wrapper" class="relative inline-block" data-aos="zoom-in" data-aos-delay="300">
+                 <img id="profile-image" src="/rashid.png" alt="Rashid Mbuma" class="profile-img w-40 h-40 rounded-full mx-auto mb-8 shadow-xl relative z-10 object-cover">
+             </div>
+             <h1 id="header-name" class="text-5xl md:text-6xl font-bold mb-3 text-white relative z-6" data-aos="fade-down" data-aos-delay="400">Rashid Mbuma</h1>
+             <h2 id="header-title" class="text-2xl md:text-3xl accent-gradient font-semibold mb-6 relative z-6" data-aos="fade-down" data-aos-delay="500">Pediatrics Resident | Implementation Science Researcher | Healthcare Innovator</h2>
+             <p class="max-w-3xl mx-auto prose-custom text-center mb-10" data-aos="fade-up" data-aos-delay="600">
+                 Welcome to my story. I am a dedicated Medical Doctor specializing in Pediatrics and Child Health, driven by a deep commitment to improving health outcomes in Tanzania through evidence-based practice, research, and innovation. My journey is one of continuous learning, applying scientific rigor to real-world health challenges, and advocating for vulnerable populations.
+             </p>
+             <div class="flex justify-center items-center space-x-6 text-3xl text-gray-400 mt-8" data-aos="fade-up" data-aos-delay="700">
+                 <a href="mailto:rashid.mbuma@scholar.aku.edu" class="link-icon" title="Email"><i class="fas fa-envelope"></i></a>
+                 <a href="https://www.linkedin.com/in/rashid-mbuma" target="_blank" rel="noopener noreferrer" class="link-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                  <a href="https://twitter.com/toniejstz" target="_blank" rel="noopener noreferrer" class="link-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
+                  <a href="https://medium.com/@rashtonyhag" target="_blank" rel="noopener noreferrer" class="link-icon" title="Blog"><i class="fab fa-medium"></i></a>
+                 <span class="flex items-center text-lg ml-4 text-gray-400" title="Location">
+                     <i class="fas fa-map-marker-alt mr-2 text-purple-400"></i> Dar-es-Salaam, TZ
+                 </span>
+             </div>
+        </section>
+
+        <section id="foundations" class="mb-20" data-aos="fade-up">
+            <h3 class="section-header text-center mx-auto">Laying the Foundations</h3>
+             <p class="max-w-3xl mx-auto prose-custom text-center mb-10">
+                 Every journey begins with a first step. Mine was rooted in a passion for science and a desire to make a tangible difference in people's lives. My early education and medical training provided the essential knowledge and skills that would shape my path.
+             </p>
+            <div class="space-y-10 max-w-3xl mx-auto">
+                <div class="glass-card p-8 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6" data-aos="fade-right">
+                    <div class="accent-gradient-bg p-3 rounded-full text-white flex-shrink-0 text-xl"><i class="fas fa-user-graduate fa-fw"></i></div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-white">Doctor of Medicine (MD)</h4>
+                        <p class="text-purple-300">Muhimbili University of Health and Allied Sciences (MUHAS), Dar-es-Salaam</p>
+                        <p class="prose-custom-sm">2017 - 2022 | GPA: 4.0</p>
+                        <p class="mt-3 prose-custom">My medical degree provided a comprehensive understanding of human health and disease. During this time, I also explored the intersection of health and technology, sparking an interest that continues to grow. My research focused on the prevalence of pediatric CSOM among patients attending the ENT clinic at MNH.</p>
+                    </div>
+                </div>
+                 <div class="glass-card p-8 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6" data-aos="fade-left">
+                     <div class="accent-gradient-bg p-3 rounded-full text-white flex-shrink-0 mt-1 text-xl"><i class="fas fa-school"></i></div>
+                     <div>
+                         <h4 class="text-xl font-semibold text-white">Early Academic Journey</h4>
+                         <p class="text-purple-300">St. Mary's Ulete & Mzumbe Secondary School</p>
+                         <p class="prose-custom-sm">2011 - 2017</p>
+                         <p class="mt-3 prose-custom">These formative years instilled in me the value of determination and rigorous study. Excelling in sciences, I achieved national recognition, which paved the way for my entry into medical school.</p>
+                     </div>
+                 </div>
+            </div>
+        </section>
+
+        <section id="building-expertise" class="mb-20" data-aos="fade-up">
+            <h3 class="section-header text-center mx-auto">Building Expertise: Clinical Practice</h3>
+             <p class="max-w-3xl mx-auto prose-custom text-center mb-10">
+                 Putting knowledge into practice is where the real learning happens. My professional roles have allowed me to deepen my clinical skills, particularly in pediatric care, and understand the complexities of healthcare delivery on the ground.
+             </p>
+            <div class="timeline max-w-3xl mx-auto">
+                 <div class="timeline-item" data-aos="fade-in">
+                     <div class="timeline-icon accent-gradient-bg text-white"><i class="fas fa-stethoscope"></i></div>
+                     <div class="glass-card p-6 ml-4">
+                         <h4 class="text-xl font-semibold mb-1 text-white">Pediatrics Resident</h4>
+                         <p class="text-purple-300 mb-1">Aga Khan University Hospital</p>
+                         <p class="prose-custom-sm mb-3">2024 - Present</p>
+                         <ul class="list-disc prose-custom space-y-2 pl-4">
+                             <li>Engaging in the comprehensive management of complex pediatric cases within multidisciplinary teams, including in the NICU and PICU.</li>
+                             <li>Developing an implementation research thesis focused on integrating nutrition counseling into child health services.</li>
+                             <li>Contributing to quality improvement initiatives, such as reducing neonatal hypothermia.</li>
+                         </ul>
+                     </div>
+                 </div>
+                 <div class="timeline-item" data-aos="fade-in">
+                     <div class="timeline-icon accent-gradient-bg text-white"><i class="fas fa-clinic-medical"></i></div>
+                     <div class="glass-card p-6 ml-4">
+                         <h4 class="text-xl font-semibold mb-1 text-white">General Practitioner (Pediatrics Focus)</h4>
+                         <p class="text-purple-300 mb-1">Care Plus Hospital</p>
+                         <p class="prose-custom-sm mb-3">Jan 2024 - Present</p>
+                         <ul class="list-disc prose-custom space-y-2 pl-4">
+                              <li>Provided dedicated pediatric care in outpatient and inpatient settings, managing acute and chronic conditions.</li>
+                              <li>Trained nursing staff on key child health protocols, leading to measurable improvements in care delivery.</li>
+                         </ul>
+                     </div>
+                 </div>
+                 <div class="timeline-item" data-aos="fade-in">
+                     <div class="timeline-icon accent-gradient-bg text-white"><i class="fas fa-briefcase"></i></div>
+                     <div class="glass-card p-6 ml-4">
+                         <h4 class="text-xl font-semibold mb-1 text-white">Medical Intern</h4>
+                         <p class="text-purple-300 mb-1">Muhimbili National Hospital</p>
+                         <p class="prose-custom-sm mb-3">2022 - 2023</p>
+                         <ul class="list-disc prose-custom space-y-2 pl-4">
+                             <li>Gained broad clinical experience across major specialties, including significant exposure to pediatric nutritional care.</li>
+                             <li>Contributed to hospital-wide quality improvement projects, directly impacting patient outcomes.</li>
+                         </ul>
+                     </div>
+                 </div>
+            </div>
+        </section>
+
+        <section id="impact-innovation" class="mb-20" data-aos="fade-up">
+            <h3 class="section-header text-center mx-auto">Driving Impact Through Research & Community</h3>
+             <p class="max-w-3xl mx-auto prose-custom text-center mb-10">
+                 My commitment extends beyond clinical walls. Through research and community engagement, I strive to identify scalable solutions, advocate for better health policies, and empower communities to improve their well-being.
+             </p>
+             <div class="space-y-10 max-w-3xl mx-auto">
+                <div class="glass-card p-8 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6" data-aos="fade-right">
+                    <div class="accent-gradient-bg p-3 rounded-full text-white flex-shrink-0 mt-1 text-xl"><i class="fas fa-flask-vial fa-fw"></i></div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-white">Implementation Science Research</h4>
+                        <p class="prose-custom-sm">Aga Khan University & MUHAS</p>
+                        <p class="prose-custom-sm">2022 - Present</p>
+                        <p class="mt-3 prose-custom">My research focuses on translating evidence into practice, particularly in pediatric nutrition and addressing hearing loss. I am dedicated to designing studies that inform effective public health interventions and policy.</p>
+                    </div>
+                </div>
+                <div class="glass-card p-8 flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6" data-aos="fade-left">
+                    <div class="accent-gradient-bg p-3 rounded-full text-white flex-shrink-0 mt-1 text-xl"><i class="fas fa-seedling fa-fw"></i></div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-white">Community Health Initiatives</h4>
+                         <p class="prose-custom-sm">IRIS Nutrition Initiative & Afya Check Health Camps</p>
+                        <p class="prose-custom-sm">2019 - 2022</p>
+                        <p class="mt-3 prose-custom">Actively involved in volunteer efforts to provide health education, conduct screenings, and mobilize resources for underserved communities, directly contributing to improved health awareness and outcomes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="mb-20" data-aos="fade-up">
+            <h3 class="section-header text-center mx-auto">Tools of the Trade: Skills</h3>
+             <p class="max-w-3xl mx-auto prose-custom text-center mb-10">
+                 Equipped with a diverse set of technical and analytical skills, I am prepared to tackle complex challenges in healthcare research and implementation.
+             </p>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                <div class="competence-item" data-aos="zoom-in" data-aos-delay="50"><i class="fas fa-chart-pie fa-fw text-lg"></i> SPSS</div>
+                <div class="competence-item" data-aos="zoom-in" data-aos-delay="100"><i class="fas fa-calculator fa-fw text-lg"></i> Stata</div>
+                <div class="competence-item" data-aos="zoom-in" data-aos-delay="150"><i class="fab fa-python fa-fw text-lg"></i> Python (Pandas)</div>
+                <div class="competence-item" data-aos="zoom-in" data-aos-delay="200"><i class="fas fa-book-open fa-fw text-lg"></i> Cochrane Review</div>
+                <div class="competence-item" data-aos="zoom-in" data-aos-delay="250"><i class="fas fa-bookmark fa-fw text-lg"></i> Zotero</div>
+                 <div class="competence-item" data-aos="zoom-in" data-aos-delay="300"><i class="fas fa-database fa-fw text-lg"></i> SQL</div>
+                 <div class="competence-item" data-aos="zoom-in" data-aos-delay="350"><i class="fas fa-chart-line fa-fw text-lg"></i> Regression Analysis</div>
+                 <div class="competence-item" data-aos="zoom-in" data-aos-delay="400"><i class="fas fa-language fa-fw text-lg"></i> Swahili (Native)</div>
+                 <div class="competence-item" data-aos="zoom-in" data-aos-delay="450"><i class="fas fa-language fa-fw text-lg"></i> English (IELTS 8.0)</div>
+            </div>
+        </section>
+
+         <section id="recognition" class="mb-20" data-aos="fade-up">
+            <h3 class="section-header text-center mx-auto">Milestones & Recognition</h3>
+             <p class="max-w-3xl mx-auto prose-custom text-center mb-10">
+                 Along the way, certain achievements have marked significant steps in my development and impact.
+             </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="glass-card p-6 text-center" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fas fa-star text-4xl accent-gradient mb-3"></i>
+                    <h4 class="text-lg font-semibold mb-1 text-white">Clinical Excellence</h4>
+                    <p class="prose-custom-sm">Achieved high patient satisfaction, reflecting a commitment to compassionate and effective pediatric care.</p>
+                </div>
+                <div class="glass-card p-6 text-center" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fas fa-trophy text-4xl accent-gradient mb-3"></i>
+                    <h4 class="text-lg font-semibold mb-1 text-white">Academic Distinction</h4>
+                    <p class="prose-custom-sm">Recognized nationally for academic performance during early education.</p>
+                </div>
+                <div class="glass-card p-6 text-center" data-aos="zoom-in" data-aos-delay="300">
+                    <i class="fas fa-users-cog text-4xl accent-gradient mb-3"></i>
+                    <h4 class="text-lg font-semibold mb-1 text-white">Leadership & Innovation</h4>
+                    <p class="prose-custom-sm">Awarded for leadership in digital health, demonstrating a commitment to leveraging technology for health improvement.</p>
+                </div>
+                 <div class="glass-card p-6 text-center" data-aos="zoom-in" data-aos-delay="100">
+                     <i class="fab fa-google text-4xl text-blue-400 mb-3"></i>
+                     <h4 class="text-lg font-semibold mb-1 text-white">Data Analytics Certification</h4>
+                     <p class="prose-custom-sm">Completed Google's Advanced Data Analytics Certificate, enhancing skills in data-driven decision making.</p>
+                 </div>
+            </div>
+        </section>
+
+
+        <section id="connect" class="text-center pt-10" data-aos="fade-up">
+             <h3 class="section-header text-center mx-auto">Join the Conversation</h3>
+             <p class="max-w-2xl mx-auto prose-custom mb-10">
+                 My journey in pediatric health, research, and innovation is ongoing. I am always eager to connect with fellow professionals, researchers, and organizations who share a passion for improving child health outcomes in Tanzania and beyond. Whether you have a collaboration opportunity, a research idea, or just want to discuss healthcare innovation, I welcome you to reach out.
+             </p>
+             <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+                 <a href="mailto:rashid.mbuma@scholar.aku.edu" class="btn text-lg">
+                     <i class="fas fa-envelope mr-2"></i> Email Me
+                 </a>
+                 <a href="https://www.linkedin.com/in/rashid-mbuma" target="_blank" rel="noopener noreferrer" class="btn btn-secondary text-lg">
+                     <i class="fab fa-linkedin mr-2"></i> Connect on LinkedIn
+                 </a>
+                  <a href="https://medium.com/@rashtonyhag" target="_blank" rel="noopener noreferrer" class="btn btn-secondary text-lg">
+                     <i class="fab fa-medium mr-2"></i> Read My Blog
+                 </a>
+             </div>
+             <div class="mt-20 border-t border-gray-600 pt-8 text-base text-gray-500">
+                 &copy; 2025 Rashid Mbuma. Telling My Story.
+             </div>
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            once: true, // Animation plays only once
+            disable: 'phone' // Disable animations on phone devices (optional)
+        });
+
+        // particles.js configuration
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 40, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#a855f7" }, // Particle color (purple)
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.35, "random": true, "anim": { "enable": true, "speed": 0.5, "opacity_min": 0.1, "sync": false } },
+                "size": { "value": 3, "random": true },
+                "line_linked": { "enable": true, "distance": 160, "color": "#4b5563", "opacity": 0.2, "width": 1 }, // Link color (gray)
+                "move": { "enable": true, "speed": 1.0, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": true, "rotateX": 600, "rotateY": 1200 } }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+                "modes": { "grab": { "distance": 150, "line_linked": { "opacity": 0.5 } }, "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 }, "repulse": { "distance": 100, "duration": 0.4 }, "push": { "particles_nb": 3 }, "remove": { "particles_nb": 2 } }
+            },
+            "retina_detect": true
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    // Scroll to the target element, offset by navbar height
+                    const navbarHeight = document.querySelector('nav').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - navbarHeight;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+
+                     // Close mobile menu after clicking a link
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    const hamburgerIcon = document.getElementById('hamburger-icon');
+                    const closeIcon = document.getElementById('close-icon');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                         mobileMenu.classList.add('hidden');
+                         mobileMenu.classList.remove('flex'); // Remove flex class for mobile menu
+                         hamburgerIcon.classList.remove('hidden');
+                         closeIcon.classList.add('hidden');
+                    }
+                } else {
+                    console.warn("Smooth scroll target not found:", targetId);
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+             mobileMenu.classList.toggle('flex'); // Use flex to display mobile menu
+            hamburgerIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+
+             // Add/remove flex-col and other mobile styles
+             if (!mobileMenu.classList.contains('hidden')) {
+                 mobileMenu.classList.add('flex-col', 'absolute', 'top-full', 'left-0', 'right-0', 'bg-gray-900', 'p-4', 'space-x-0', 'space-y-4', 'shadow-lg');
+             } else {
+                  mobileMenu.classList.remove('flex-col', 'absolute', 'top-full', 'left-0', 'right-0', 'bg-gray-900', 'p-4', 'space-x-0', 'space-y-4', 'shadow-lg');
+             }
+        });
+
+        // Highlight active navigation link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinksList = document.querySelectorAll('.nav-link'); // Select links within the mobile menu
+        const desktopNavLinks = document.querySelectorAll('nav > div > a[href^="#"]'); // Select links in the desktop menu
+
+
+        const highlightNavLink = () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                // Adjust scroll position based on navbar height (approx 70px)
+                if (scrollY >= sectionTop - 70) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            // Highlight links in both desktop and mobile menus
+            [...navLinksList, ...desktopNavLinks].forEach(link => {
+                link.classList.remove('text-blue-500'); // Remove active class
+                link.classList.add('text-white'); // Add inactive class (default)
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.remove('text-white');
+                    link.classList.add('text-blue-500'); // Add active class
+                }
+            });
+        };
+
+        window.addEventListener('scroll', highlightNavLink);
+        // Initial call to set active link on page load
+        highlightNavLink();
+
+
+        // Contact Form Submission (Placeholder - Replace with your EmailJS or backend logic)
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+
+        if (contactForm && formStatus) {
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                formStatus.textContent = 'Sending...';
+                formStatus.className = 'text-center mt-4 text-sm text-gray-400'; // Reset status styling
+
+                // Replace with your actual EmailJS send code or backend fetch
+                /*
+                emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this, 'YOUR_USER_ID')
+                    .then((result) => {
+                        console.log('SUCCESS!', result.text);
+                        formStatus.textContent = 'Message sent successfully!';
+                        formStatus.className = 'text-center mt-4 text-sm text-green-500'; // Success styling
+                        contactForm.reset();
+                    }, (error) => {
+                        console.error('FAILED...', error);
+                        formStatus.textContent = 'Failed to send message. Please try again.';
+                         formStatus.className = 'text-center mt-4 text-sm text-red-500'; // Error styling
+                    });
+                */
+
+                // Placeholder for demonstration:
+                 setTimeout(() => {
+                     formStatus.textContent = 'Message sent successfully! (Placeholder)';
+                      formStatus.className = 'text-center mt-4 text-sm text-green-500'; // Success styling
+                     contactForm.reset();
+                 }, 2000); // Simulate a delay
+
+            });
+        } else {
+            console.error("Contact form or status element not found!");
+        }
+
+
+    </script>
+
+</body>
+</html>
